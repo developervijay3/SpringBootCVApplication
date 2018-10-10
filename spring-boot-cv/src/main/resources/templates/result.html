@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>CV</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+</head>
+<body>
+	<h1>Your CV</h1>
+	<h4>FirstName:</h4>
+	<p th:text="${firstName}" />
+	<h4>LastName:</h4>
+	<p th:text="${lastName}" />
+	<h4>Country:</h4>
+	<p th:text="${country}" />
+	<h4>Date:</h4>
+	<p th:text="${datetimeField}" />
+	<p th:utext="${cv}" />
+</body>
+</html>

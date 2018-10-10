@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot and Thymeleaf example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+</head>
+
+
+
+<body>
+	<h3>Candidate CV</h3>
+	<form action="#" th:action="@{/}" th:object="${post}" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><input type="text" th:field="*{firstName}" /></td>
+				<td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Title error message</td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><input type="text" th:field="*{lastName}" /></td>
+				<td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Content error message</td>
+			</tr>
+			
+			<tr>
+			  <td>Country:</td>
+			  <td>
+			    <select th:field="*{country}">
+                <option th:value="'India'" th:text="India"></option>
+                <option th:value="'Australia'" th:text="Australia"></option>
+                <option th:value="'USA'" th:text="USA"></option>
+                <option th:value="'UK'" th:text="UK"></option>
+                <option th:value="'France'" th:text="France"></option>
+                <option th:value="'Germany'" th:text="Germany"></option>
+               </select>
+               </td>
+			</tr>
+			
+			<tr>
+			<td>Date Field:</td>
+			<td><input type="datetime-local" th:field="*{datetimeField}" /></td>
+			</tr>
+			
+			<tr>
+			<td>Candidate CV File</td>
+			<td><input type="file" name="myFile" /></td>
+			</tr>
+			
+			<tr>
+				<td><button type="submit">Submit CV</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
